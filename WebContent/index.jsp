@@ -152,7 +152,8 @@ $.ajax({
 });}
 </script>
 </head>
-<body style="background: #EEE; font-size: 20px;" >
+<body style="background: #EEE; font-size: 20px; margin: 0px;" >
+<div style="width: 100%; height: 30px; background: #5EE293; padding-left: 15px; padding-top: 6px;" align="left"  ><font style="font-family: 'Segoe UI', Tahoma, sans-serif; font-weight: bold;">Words 2.0</font></div>
 <div style="width: 20%; height: 40px; background: #FFF; margin: 20px; float: left; padding: 20px;" ><input type="text" size="25" value="" id="country" onkeyup="suggest(this.value);" onblur="fill();"   class=""  style="width: 100%; height: 100%; font-size: 15px; font-weight: bold;" />
      
       <div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="arrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
