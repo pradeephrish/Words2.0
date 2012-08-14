@@ -42,10 +42,10 @@ public class WordListServlet extends HttpServlet {
 
 		ResultSet stat = null;
 		String input = request.getParameter("queryString");
-		Connection con = new SqlServer2008Connect().dbConnect("jdbc:jtds:sqlserver://localhost:1433","sa","Tibco@2012");
+		Connection con = new MySqlConnector().dbConnect("jdbc:mysql://localhost:3306/worddb","root",DBConstants.dbPass);
 		
 		try {
-			stat = con.createStatement().executeQuery("SELECT  [Word]    FROM [movedb].[dbo].[wordInfo] where Word like '"+input+"%'");
+			stat = con.createStatement().executeQuery("SELECT  word   FROM wordtable where word like '"+input+"%'");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

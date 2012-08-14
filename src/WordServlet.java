@@ -99,10 +99,10 @@ public class WordServlet extends HttpServlet {
 		
 		ResultSet stat = null;
 		System.out.println(request.getParameter("in"));
-		Connection con = new SqlServer2008Connect().dbConnect("jdbc:jtds:sqlserver://localhost:1433","sa","Tibco@2012");
+		Connection con = new MySqlConnector().dbConnect("jdbc:mysql://localhost:3306/worddb","root",DBConstants.dbPass);
 		
 		try {
-			stat = con.createStatement().executeQuery("SELECT  [ID]       ,[Word]       ,[Meaning]       ,[Usage]       ,[Mnemonic]   FROM [movedb].[dbo].[wordInfo] where ID ="+index);
+			stat = con.createStatement().executeQuery("SELECT  id,word,meaning ,usages,mnemonic   FROM wordtable where ID ="+index);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -111,8 +111,8 @@ public class WordServlet extends HttpServlet {
 				stat.next();
 				request.getSession().setAttribute("1",stat.getObject(2));
 				request.getSession().setAttribute("2",stat.getObject(3));
-				request.getSession().setAttribute("3",processString(clobToString(stat.getObject(4))));
-				request.getSession().setAttribute("4",processString(clobToString(stat.getObject(5))));
+				request.getSession().setAttribute("3",processString((stat.getObject(4))));
+				request.getSession().setAttribute("4",processString((stat.getObject(5))));
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -121,33 +121,16 @@ public class WordServlet extends HttpServlet {
 		
 	}
 	
-	private String clobToString(Object object) {
-		Clob clob = (Clob) object;
-	    StringBuilder sb = new StringBuilder();
-	    try {
-	        Reader reader = clob.getCharacterStream();
-	        BufferedReader br = new BufferedReader(reader);
-
-	        String line;
-	        while(null != (line = br.readLine())) {
-	            sb.append(line);
-	        }
-	        br.close();
-	    } catch (SQLException e) {
-	        // handle this exception
-	    } catch (IOException e) {
-	        // handle this exception
-	    }
-	    return sb.toString();
-	}
-	public static String processString(String input) {
-		if (input == null)
+	
+	public static String processString(Object object1) {
+		String object = object1.toString();
+		if (object == null)
 			return null;
-		if (input.equals(""))
+		if (object.equals(""))
 			return "";
-		input = input.replace("'", "&#39;");
-		input = input.replace(",", "&#44;");
-		input = input.replace("\n", "&#10;");
-		return input;
+		object = object.replace("'", "&#39;");
+		object = object.replace(",", "&#44;");
+		object = object.replace("\n", "&#10;");
+		return object;
 	}
 }

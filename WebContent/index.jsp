@@ -65,7 +65,7 @@ background-repeat:no-repeat;
 
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Gre Rapid Fire</title>
+<title>GREWordsOnline.com</title>
  <script src="jquery.min.js" type="text/javascript"></script>
  <script>
 function suggest(inputString){
@@ -99,13 +99,13 @@ try{
 	out.println("a1 = '"+session.getAttribute("1")+"';");
 	out.println("a2 = '"+session.getAttribute("2")+"';");
 	out.println("a3 = '"+session.getAttribute("3")+"';");
-	out.println("a4 = '"+session.getAttribute("4")+"';");}
-	else{
-		out.println("post(\"n\",1);");
+	
+	
 	}
+	
 %>
 }catch(e){
-	alert('bug 1 : solve after gre');
+	
 }
 </script>
 <script type="text/javascript">
@@ -153,7 +153,15 @@ $.ajax({
 </script>
 </head>
 <body style="background: #EEE; font-size: 20px; margin: 0px;" >
-<div style="width: 100%; height: 30px; background: #5EE293; padding-left: 15px; padding-top: 6px;" align="left"  ><font style="font-family: 'Segoe UI', Tahoma, sans-serif; font-weight: bold;">Words 2.0</font></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div style="width: 100%; height: 30px; background: #5EE293; padding-left: 15px; padding-top: 6px;" align="left"  ><font style="font-family: 'Segoe UI', Tahoma, sans-serif; font-weight: bold; ">GREWordsOnline.com</font></div>
 <div style="width: 20%; height: 40px; background: #FFF; margin: 20px; float: left; padding: 20px;" ><input type="text" size="25" value="" id="country" onkeyup="suggest(this.value);" onblur="fill();"   class=""  style="width: 100%; height: 100%; font-size: 15px; font-weight: bold;" />
      
       <div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="arrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
@@ -162,11 +170,12 @@ $.ajax({
 </div>
 <a onclick="prev();" style="text-decoration: none;" ><div style="width: 10%; height: 40px; background: #FFF; margin: 20px; float: left; padding: 20px;" >Prev</div></a>
 <a onclick="next();" style="text-decoration: none;"><div style="width: 10%; height: 40px; background: #FFF; margin: 20px; float: left; padding: 20px;">Next</div></a>
+<div class="fb-like" style="margin-top: 20px;" data-href="https://www.facebook.com/GreWordsOnline" data-send="true" data-width="450" data-show-faces="true"></div>
 <div style="width: 100%; height: 120px;"></div>
 <div style="width: 100%; height: 80px; background: #E2D9F7; padding: 5px; padding-top: 10px;" align="center"  id="1"></div>
-<div style="width: 100%; height: 80px; background: #F86363; margin-top: 10px; padding: 5px; padding-top: 10px;" align="center"  id="2"></div>
+<div style="width: 100%; height: 80px; background: #DF7F7F; margin-top: 10px; padding: 5px; padding-top: 10px;" align="center"  id="2"></div>
 <div style="width: 100%; height: 80px; background: #7CA1FF; margin-top: 10px; padding: 5px; padding-top: 10px;" align="center"  id="3"></div>
-<div style="width: 100%; background: #FFF; margin-top: 10px; padding: 5px; padding-top: 10px;" align="center"  id="4"></div>
+
 <div style="width: 2%; 40px; background: #FFF; margin-top:20px; padding-top:20px; margin: 10px; float: left; padding: 10px;" onclick="callFromBase(this.innerHTML);" onclick="callFromBase(this.innerHTML);">A</div>
 <div style="width: 2%; 40px; background: #FFF; margin-top:20px; padding-top:20px; margin: 10px; float: left; padding: 10px;" onclick="callFromBase(this.innerHTML);" onclick="callFromBase(this.innerHTML);">B</div>
 <div style="width: 2%; 40px; background: #FFF; margin-top:20px; padding-top:20px; margin: 10px; float: left; padding: 10px;" onclick="callFromBase(this.innerHTML);">C</div>
@@ -198,8 +207,44 @@ $.ajax({
 document.getElementById("1").innerHTML = a1;
 document.getElementById("2").innerHTML = a2;
 document.getElementById("3").innerHTML = a3;
-document.getElementById("4").innerHTML = a4;
+
 $('#country').val(a1);
+<%
+if(session.getAttribute("1")==null){
+	out.println("post(\"n\",1);");
+}
+%>
 </script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34086048-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script id="_webengage_script_tag" type="text/javascript">
+  window.webengageWidgetInit = window.webengageWidgetInit || function(){
+    webengage.init({
+      licenseCode:"~71680ab2"
+    }).onReady(function(){
+      webengage.render();
+    });
+  };
+
+  (function(d){
+    var _we = d.createElement('script');
+    _we.type = 'text/javascript';
+    _we.async = true;
+    _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js";
+    var _sNode = d.getElementById('_webengage_script_tag');
+    _sNode.parentNode.insertBefore(_we, _sNode);
+  })(document);
+</script>	
 </body>
 </html>
