@@ -1,0 +1,21 @@
+{
+ "app": {
+      "launch": {
+         "container": "tab",
+         "web_url": "http://www.grewordsonline.com/"
+      },
+      "web_content": {
+         "enabled": true,
+         "origin": "http://www.grewordsonline.com/"
+      }
+   },
+   "default_locale": "en",
+   "manifest_version": 2,
+   "description": "Gre Word Free Online Guide",
+   "icons": {
+      "128": "icon128.png"
+   },
+   "name": "Gre Words Online",
+   "update_url": "http://clients2.google.com/service/update2/crx",
+   "version": "0.2"
+}
